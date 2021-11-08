@@ -1,0 +1,16 @@
+<div class="card">
+  <div class = "card-header"><h5>Products</h5></div>
+   <div class = "card-body">
+        <ol class = "list-group">
+
+          <li class = "list-group-item list-group-item-action" *ngFor="let p of products"
+          (click)="productClicked(p)">
+              {{p.productName}}
+          </li>
+    
+        </ol>
+   </div>
+    
+ 
+  
+</div>

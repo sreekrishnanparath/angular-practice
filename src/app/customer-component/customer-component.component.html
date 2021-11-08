@@ -1,0 +1,43 @@
+<div class="card">
+  <div class = "card-header"><h5>Customer Details</h5></div>
+   {{enableToedit}}
+    <form (ngSubmit)="onSave(customerForm,customer.customerNumber)" #customerForm="ngForm">
+        <div class = "card-body">
+          <div class="form-group">
+            <label for="customerNumber">Customer Id</label>
+            <input type="number"  class="form-control"  name="customerNumber" [value]="customer.customerNumber"  readonly>
+          </div>
+          <div class="form-group">
+            <label for="customerName">Customer Name</label>
+            <input type="text" class="form-control"   name="customerName" [(ngModel)]="customer.customerName"  [readonly]="enableToedit">
+          </div>
+
+          <div class="form-group">
+            <label for="customerReference">Customer Reference</label>
+            <input type="text" class="form-control"   name="customerRef"  [(ngModel)]="customer.customerRef"   [readonly]="enableToedit">
+          </div>
+
+          <div class="form-group">
+            <label for="creditLimit">Credit Limit :</label>
+            <input type="number" class="form-control"  name="creditLimit"  [(ngModel)]="customer.creditLimit"   [readonly]="enableToedit">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" class="form-control" name="phone"  [(ngModel)]="customer.phone"   [readonly]="enableToedit">
+          </div>
+        </div>
+        <div class = "card-footer ">
+          <div class="d-grid gap-2 d-md-flex" >
+            <button type='button' class=" btn btn-success" (click)="reset()">New</button>
+            <button type='button' class=" btn btn-warning" (click)="edit()">Edit</button>
+            <button type="submit" class=" btn btn-primary">Save</button>    
+            
+         </div>
+         
+      </div>
+    </form>
+
+ 
+  
+</div>

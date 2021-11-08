@@ -1,0 +1,28 @@
+<div class="card">
+  <div class = "card-header"><h5> Order Details {{customer.customerName}} </h5></div>
+   
+    
+        <div class = "card-body">
+
+          <div *ngIf = "customer.orders.length==0">
+            <label>There no order details</label>
+          </div>
+
+          <ul class = "list-group">
+
+            <li class = "list-group-item " *ngFor="let order of customer.orders">
+              <app-order-component [order] = "order"></app-order-component>
+            </li>
+           
+      
+          </ul>
+  
+        </div>
+        <div class = "card-footer ">
+            <button type='button' class=" btn btn-success" (click)="addOrder()">Add</button>
+         
+      </div>
+
+ 
+  
+</div>

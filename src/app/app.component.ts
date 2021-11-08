@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Customer } from './DTO/Customer';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'customer-product-order';
+
+  
 }
