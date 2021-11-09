@@ -6,15 +6,14 @@ import { Customer } from '../DTO/Customer';
   templateUrl: './customer-page.component.html',
   styleUrls: ['./customer-page.component.css']
 })
+
 export class CustomerPageComponent implements OnInit {
 
   selectedCustomer : Customer;
-  //enableToedit : boolean;
+
 
   setSelectedCustomer(event){      
-    this.selectedCustomer = event;
-    //this.enableToedit = true;
-    
+    this.selectedCustomer = event;    
 }
 
 

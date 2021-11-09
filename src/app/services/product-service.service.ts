@@ -7,19 +7,19 @@ import { Product } from '../DTO/Product';
 export class ProductServiceService {
 
   products : Product [] = [];
-  constructor() { 
-
-    
+  constructor() {     
     this.products.push(new Product(1,"Car",100));
     this.products.push(new Product(2,"Laptop",200));
     this.products.push(new Product(3,"Dress",300));
 
   }
 
+  //Fetch products
   getProducts(){
     return this.products;
   }
 
+  //Save Product
   saveProduct(prod : Product){
     if(prod.productNumber ==0){    
       prod.productNumber  = this.products.length +1;   
@@ -27,7 +27,6 @@ export class ProductServiceService {
     }else{
       let itemIndex = this.products.findIndex(item => item.productNumber == prod.productNumber);
       this.products[itemIndex] = prod;
-    }
-    //
+    }    
   }
 }

@@ -5,11 +5,11 @@ import { Product } from '../DTO/Product';
 import {ProductServiceService} from '../services/product-service.service'
 
 @Component({
-  selector: 'app-order-component',
-  templateUrl: './order-component.component.html',
-  styleUrls: ['./order-component.component.css']
+  selector: 'app-order',
+  templateUrl: './order.component.html',
+  styleUrls: ['./order.component.css']
 })
-export class OrderComponentComponent implements OnInit {
+export class OrderComponent implements OnInit {
 
 
   @Input() order : Order;
@@ -18,15 +18,25 @@ export class OrderComponentComponent implements OnInit {
   constructor(public productService : ProductServiceService) { }
 
   ngOnInit() {
+    //this.order = new Order(new Product(0,"",0),0,0,0);
   }
 
+  //Fetch product list
   getProductList(){
     return this.productService.getProducts();
   }
 
+  //Product select event
   onProductSet( selectedProduct : Product){
     this.order.product = selectedProduct;
-    this.order.totalPrice = this.order.qty;
+    this.order.qty = 0;
+    this.order.totalPrice = 0;
+  }
+
+  //Qty enter event
+  OnQtyEntered(enterQty: number): void {  
+    console.log(enterQty);
+    this.order.totalPrice = enterQty * this.order.product.price;
   }
 
 }

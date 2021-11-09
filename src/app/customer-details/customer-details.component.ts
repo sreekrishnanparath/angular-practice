@@ -12,7 +12,6 @@ export class CustomerDetailsComponent implements OnInit {
 
 
   @Output() selectedCustomer = new EventEmitter<Customer>();
-  //@Output() enableToedit = new EventEmitter<boolean>();
 
   customers : Customer [] = [];
    
@@ -24,9 +23,9 @@ export class CustomerDetailsComponent implements OnInit {
     this.customers = this.customerService.getCustomers();
   }
 
+  //Customer clicked
   customerClicked(cust : Customer){      
       this.selectedCustomer.emit(cust);
-      //this.enableToedit.emit(true);
       
   }
 }

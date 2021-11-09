@@ -1,0 +1,10 @@
+<div class="container-fluid mt-3 ">
+  <div class="row">    
+  <div class="col p-2 ">
+    <app-product-details
+      (selectedProduct)="setSelectedProduct($event)"></app-product-details></div>
+  <div class="col p-2 "><app-product 
+    [product] = "selectedProduct"
+    ></app-product></div>
+</div>
+</div>

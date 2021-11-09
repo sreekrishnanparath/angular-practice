@@ -5,13 +5,13 @@
         <div class = "card-body">
 
           <div *ngIf = "customer.calls.length==0">
-            <label>There no call details</label>
+            <label>There are no call details</label>
           </div>
 
           <ul class = "list-group">
 
             <li class = "list-group-item " *ngFor="let call of customer.calls">
-              <app-call-component [call] = "call"></app-call-component>
+              <app-call [call] = "call"></app-call>
             </li>
            
       

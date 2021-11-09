@@ -2,8 +2,7 @@
     <div class="row">    
     <div class="col p-2 "><app-customer-details
       (selectedCustomer)="setSelectedCustomer($event)"></app-customer-details></div>
-    <div class="col p-2 "><app-customer-component 
-      [customer] = "selectedCustomer" 
-      ></app-customer-component></div>
+    <div class="col p-2 "><app-customer  [customer] = "selectedCustomer" 
+      ></app-customer></div>
   </div>
 </div>

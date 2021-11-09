@@ -7,20 +7,21 @@ import { Customer } from '../DTO/Customer';
 export class CustomerService {
 
   customers : Customer [] = [];
-  constructor() { 
 
-    
-    this.customers.push(new Customer(1,"sree123","Sree",100,"1234"));
-    this.customers.push(new Customer(2,"hari123","Hari",200,"5467"));
-    this.customers.push(new Customer(3,"nad123","Nandan",300,"9999"));
-    this.customers.push(new Customer(4,"mat123","Mathwes",400,"5555"));
+  constructor() {     
+    this.customers.push(new Customer(1,"James","J123",100,"0852102430"));
+    this.customers.push(new Customer(2,"Adam","A234",200,"085210545"));
+    this.customers.push(new Customer(3,"Charles","C678",300,"0852103242"));
+    this.customers.push(new Customer(4,"Peter","P345",400,"4234562"));
 
   }
 
+  //Fetch customer details
   getCustomers(){
     return this.customers;
   }
 
+  //Save Customer
   saveCustomer(cust : Customer){
     if(cust.customerNumber ==0){    
         cust.customerNumber  = this.customers.length +1;   
@@ -28,7 +29,6 @@ export class CustomerService {
     }else{
       let itemIndex = this.customers.findIndex(item => item.customerNumber == cust.customerNumber);
       this.customers[itemIndex] = cust;
-    }
-    //
+    }    
   }
 }

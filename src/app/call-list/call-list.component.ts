@@ -17,12 +17,13 @@ export class CallListComponent implements OnInit {
     this.customer = new Customer(0,"","",0,"");
   }
 
+  //Add call
   addCall(){
-    if(this.customer.customerNumber>0){
-      this.customer.calls.splice(0,0,new Call(new Date(),""));
-      console.log(this.customer.calls);
+    if(this.customer.customerNumber==0){
+      alert("Please select any customer!");
+      return;
     }
-  
+    this.customer.calls.splice(0,0,new Call(new Date(),""));
   }
 
 }

@@ -2,11 +2,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Call } from '../DTO/Call';
 
 @Component({
-  selector: 'app-call-component',
-  templateUrl: './call-component.component.html',
-  styleUrls: ['./call-component.component.css']
+  selector: 'app-call',
+  templateUrl: './call.component.html',
+  styleUrls: ['./call.component.css']
 })
-export class CallComponentComponent implements OnInit {
+
+export class CallComponent implements OnInit {
 
   @Input() call : Call
 

@@ -17,17 +17,18 @@ export class OrderDetailsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.customer = new Customer(0,"","",0,"");
   }
 
 
 
 
+  //add order
   addOrder(){
     if(this.customer.customerNumber==0){
       alert("Please select any customer!");
       return;
     }
     this.customer.orders.splice(0,0,new Order(new Product(0,"",0),0,0,0));
-    console.log("addOrder##",this.customer.orders);
   }
 }

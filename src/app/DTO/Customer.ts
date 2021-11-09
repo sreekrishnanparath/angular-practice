@@ -12,9 +12,9 @@ export class Customer {
     orders : Order[];
 
     public constructor (
-        customerNumber : number,
-        customerRef : string,
+        customerNumber : number,        
         customerName : string,
+        customerRef : string,
         creditLimit : number,
         phone :string
     ){

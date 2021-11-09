@@ -1,0 +1,25 @@
+<div>
+  <div class="form-group">
+      <label for="productName">Product</label>
+      <select class="form-select" name="productName" (ngModelChange)="onProductSet($event)" (ngModel)="selectProduct" 
+      >
+        <option selected>Select Product</option>
+        <option *ngFor="let prod of getProductList()"   [ngValue]="prod">  {{prod.productName}}</option>
+      </select>
+    </div>     
+
+    <div class="form-group">
+      <label for="qty">Qty</label>
+      <input type="number" class="form-control"  name="qty" [(ngModel)]="order.qty"  (input)="OnQtyEntered($event.target.value)">
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" class="form-control"  name="price" [(ngModel)]="order.product.price"  readonly>
+    </div>
+ 
+    <div class="form-group">
+      <label for="totalPrice">Total Price</label>
+      <input type="number" class="form-control"  name="totalPrice" [(ngModel)]="order.totalPrice"  readonly>
+    </div>
+  </div>

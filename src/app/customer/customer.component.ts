@@ -4,18 +4,22 @@ import { Customer } from '../DTO/Customer';
 import { CustomerService } from '../services/customer.service';
 
 @Component({
-  selector: 'app-customer-component',
-  templateUrl: './customer-component.component.html',
-  styleUrls: ['./customer-component.component.css']
+  selector: 'app-customer',
+  templateUrl: './customer.component.html',
+  styleUrls: ['./customer.component.css']
 })
-export class CustomerComponentComponent implements OnInit {
-
-
-  @Input('customer') customer : Customer;
-  //@Input('enableToedit') enableToedit;
+export class CustomerComponent implements OnInit {
 
   
-  enableToedit : Boolean;
+  customer : Customer = new Customer(0,"","",0,"");    
+  enableToedit : Boolean; 
+
+  @Input('customer') 
+  set setCustomerObject(customer : Customer){
+    this.customer = customer;
+    this.enableToedit = true;
+  }
+  
    
   constructor(private customerService : CustomerService) {   
     
@@ -24,10 +28,10 @@ export class CustomerComponentComponent implements OnInit {
   
 
   ngOnInit() {
-      //this.customer = new Customer(0,"","",0,"");     
-      this.enableToedit = true;
+    this.customer = new Customer(0,"","",0,"");    
   }
 
+  //On save click
   onSave(customerForm : NgForm,custId:number){   
 
     for(let key in customerForm.value){
@@ -37,17 +41,18 @@ export class CustomerComponentComponent implements OnInit {
     }
     console.log( this.customer);
     this.customerService.saveCustomer(this.customer);
-    this.reset();
+    this.OnNew();
   }
 
-  reset(){
-    //alert('reset');
-    this.customer = new Customer(0,"","",0,"");
-    console.log( this.customer);
+
+  //On edit click
+  OnEdit(){
     this.enableToedit = false;
   }
 
-  edit(){
+  //On new Click
+  OnNew(){
+    this.customer = new Customer(0,"","",0,"");
     this.enableToedit = false;
   }
 
